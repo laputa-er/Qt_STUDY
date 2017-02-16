@@ -1,2 +1,3 @@
 # Qt_STUDY
-Qt 练习 demo
+
+[视频课程地址](http://www.jikexueyuan.com/course/qt/1-0-0-0/)
