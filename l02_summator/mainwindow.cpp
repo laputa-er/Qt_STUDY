@@ -6,8 +6,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QLabel *label = ui->label;
-    ui->label->hide();
 }
 
 MainWindow::~MainWindow()
@@ -15,8 +13,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-// pushButton 被点击时，显示 label。
 void MainWindow::on_pushButton_clicked()
 {
-    ui->label->show();
+    ui->spinBox_3->setValue(ui->spinBox->value() + ui->spinBox_2->value());
 }
