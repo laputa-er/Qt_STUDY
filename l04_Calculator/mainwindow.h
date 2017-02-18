@@ -23,6 +23,7 @@ private:
 public slots:
     void saveActionClicked();
     void showMessage(const QString &message, int timeOut);
+    void openDialog();
 };
 
 #endif // MAINWINDOW_H

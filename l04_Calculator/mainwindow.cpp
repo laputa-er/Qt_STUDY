@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dialog.h"
 #include <QAction>
 #include <QMenuBar>
 #include <QTimer>
+#include <QDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     newMenu->addAction(newAction);
 
     // 关联动作的触发信号到槽
-    connect(newAction, &QAction::triggered, this, &MainWindow::saveActionClicked);
+//    connect(newAction, &QAction::triggered, this, &MainWindow::saveActionClicked);
     // connect(newAction, SIGNAL(triggered(bool)), this, SLOT(savaActionClicked()));
 
     /* 测试给状态栏添加状态信息 */
@@ -38,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent) :
     bar1->show(); // 一直显示
 
     showMessage("TestMsg", 3000); // bar2 显示 3s
+
+    connect(newAction, &QAction::triggered, this, &MainWindow::openDialog);
 }
 
 MainWindow::~MainWindow()
@@ -57,4 +61,17 @@ void MainWindow::showMessage(const QString &message, int timeOut)
     bar2->setText(message);
     QTimer *timer = new QTimer;
     timer->singleShot(timeOut, bar2, SLOT(clear()));
+}
+
+// 新建并打开一个对话框
+void MainWindow::openDialog()
+{
+    Dialog dialog;
+
+    // 如果打开的对话框中，用户点击了确认
+    if(dialog.exec() == QDialog::Accepted)
+    {
+        // 推出程序
+        qApp->quit();
+    }
 }
