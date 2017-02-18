@@ -417,7 +417,14 @@
     <addaction name="actionAbout"/>
     <addaction name="actionAbout_Qt"/>
    </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>单位转换</string>
+    </property>
+    <addaction name="actionUnitSelect"/>
+   </widget>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAbout">
@@ -431,6 +438,14 @@
   <action name="actionAbout_Qt">
    <property name="text">
     <string>About_Qt</string>
+   </property>
+  </action>
+  <action name="actionUnitSelect">
+   <property name="text">
+    <string>选择单位</string>
+   </property>
+   <property name="toolTip">
+    <string>选择单位</string>
    </property>
   </action>
  </widget>
